@@ -3,10 +3,20 @@ Transform: AWS::Serverless-2016-10-31
 Description: thankshell platform
 
 Parameters:
+  CfnBucketName:
+    Type: String
   GroupMembersTableName:
     Type: String
 
 Resources:
+  ###############################################
+  # Storage
+
+  CfnBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref CfnBucketName
+
   ###############################################
   # Database
 
